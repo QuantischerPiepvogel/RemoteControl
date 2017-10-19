@@ -1,1 +1,1 @@
-#nothing in here
+print("RemoteControl.py was sucessfully started")
