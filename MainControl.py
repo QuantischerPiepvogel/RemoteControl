@@ -22,6 +22,9 @@ root = Tk()
 frame = Frame(root)
 frame.pack()
 
+frame.width = 100
+frame.height = 100
+
 bottomframe = Frame(root)
 bottomframe.pack( side = BOTTOM )
 
