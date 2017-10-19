@@ -2,8 +2,8 @@
 import subprocess
 subprocess.call(["cd", "RemoteControl"])
 subprocess.call(["git", "pull"])
-
+subprocess.call(["sudo", "python", "MainControl.py"])
 #cd RemoteControl
 #os.chdir(os.getcwd())
 #git pull
-sudo python MainControl.py
+#sudo python MainControl.py
