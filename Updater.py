@@ -6,3 +6,4 @@ import os
 os.system("cd RemoteControl")
 os.system("git pull")
 os.system("sudo python MainControl.py")
+print("RemoteControl was updated")
