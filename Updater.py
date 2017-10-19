@@ -7,6 +7,8 @@ import os
 #cd RemoteControl
 #os.chdir(os.getcwd())
 #subprocess.call(["git", "pull"])
-os.system("cd RemoteControl", "git pull", "sudo python MainControl.py")
+os.system("cd RemoteControl")
+os.system("git pull")
+os.system("sudo python MainControl.py")
 #git pull
 #sudo python MainControl.py
