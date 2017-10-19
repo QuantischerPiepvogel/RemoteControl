@@ -1,5 +1,6 @@
 # info: https://www.youtube.com/watch?v=FV7eiqN01hc
 import subprocess
+import os
 #subprocess.call(["cd", "RemoteControl"])
 #subprocess.call(["git", "pull"])
 #subprocess.call(["sudo", "python", "MainControl.py"])
