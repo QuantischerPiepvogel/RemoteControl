@@ -1,1 +1,1 @@
-# RemoteControll
+# RemoteControl
