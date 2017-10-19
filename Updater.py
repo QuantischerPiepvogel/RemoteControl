@@ -1,3 +1,4 @@
+
 # info: https://www.youtube.com/watch?v=FV7eiqN01hc
 #import subprocess
 import os
@@ -12,3 +13,4 @@ os.system("git pull")
 os.system("sudo python MainControl.py")
 #git pull
 #sudo python MainControl.py
+#55
