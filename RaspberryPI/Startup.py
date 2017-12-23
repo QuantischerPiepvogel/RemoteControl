@@ -9,5 +9,4 @@ while GPIO.input(33) == GPIO.LOW:
 
   time.sleep(0.5)
   
-thread.start_new_thread(os.system, ("sudo python RaspberryPI/MainControl.py",))
-exit()
+os.system("sudo python RaspberryPI/MainControl.py")
