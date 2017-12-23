@@ -5,5 +5,5 @@ import os
 os.system("cd RemoteControl")
 os.system("git pull")
 print("RemoteControl was updated")
-os.system("cd RemoteControl/RapberryPI")
+os.system("cd RemoteControl/RaspberryPI")
 os.system("sudo python MainControl.py")
