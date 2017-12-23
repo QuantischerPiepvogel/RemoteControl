@@ -14,7 +14,7 @@ def software_exit(*args):
   
 def toggleFullscreen(*args):
   
-  fullscreen = !fullscreen
+  fullscreen = not fullscreen
   root.attributes('-fullscreen', fullscreen)
   
 root = tk.Tk()
