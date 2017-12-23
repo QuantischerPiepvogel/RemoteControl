@@ -2,7 +2,7 @@ import thread
 import Tkinter as tk
 import os
 
-fullscreen = false;
+fullscreen = False;
 
 print("RemoteControl.py was sucessfully started")
 
