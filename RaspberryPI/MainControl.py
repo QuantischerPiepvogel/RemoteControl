@@ -6,7 +6,7 @@ print("RemoteControl.py was sucessfully started")
 
 def software_exit(*args):
   
-  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py"))
+  thread.start_new_thread(os.system, "sudo python RaspberryPI/Updater.py")
   exit()
   #os.system("sudo python RaspberryPI/Updater.py")
   
