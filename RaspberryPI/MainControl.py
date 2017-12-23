@@ -17,8 +17,7 @@ root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
 root.bind('<Enter>',software_update)
-root.bind
-root.attributes('-fullscreen', fullscreen)
+root.attributes('-fullscreen', True)
 root.mainloop()
 
 #frame.width = 100
