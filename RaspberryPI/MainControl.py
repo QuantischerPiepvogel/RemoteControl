@@ -1,3 +1,5 @@
+
+import thread
 import Tkinter as tk
 import os
 
@@ -5,22 +7,23 @@ print("RemoteControl.py was sucessfully started")
 
 def software_exit(*args):
   
-  software_update()
-  exit()
+  #software_update()
+  #exit()
   
-  #if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
+  if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
     
-    #software_update()
+    software_update()
     
-  #else:
+  else:
     
-    #if messagebox.askokcancel("Question","Do you really want to close the program?"):
+    if messagebox.askokcancel("Question","Do you really want to close the program?"):
     
-      #exit()
+      exit()
   
 def software_update():
   
-  os.system("sudo python RaspberryPI/Updater.py")
+  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py"))
+  #os.system("sudo python RaspberryPI/Updater.py")
   exit()
   
   #if messagebox.askokcancel("Question","Do you really want to update the program?"):
