@@ -13,7 +13,7 @@ def software_update():
     
     
     os.system("cd RemoteControl")
-    os.system("sudo python Updater.py")
+    os.system("sudo python RapberryPI/Updater.py")
     
     exit()
   
