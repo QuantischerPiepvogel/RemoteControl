@@ -14,7 +14,7 @@ def software_update():
   if messagebox.askokcancel("Question","Do you really want to update the program?"):
     
     
-    os.system("cd RemoteControl/RapberryPI")
+    os.system("cd RemoteControl/RaspberryPI")
     os.system("sudo python Updater.py")
     
     exit()
