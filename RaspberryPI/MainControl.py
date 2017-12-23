@@ -3,7 +3,7 @@ import os
 
 print("RemoteControl.py was sucessfully started")
 
-def software_exit():
+def software_exit(*args):
   
   software_update()
   exit()
