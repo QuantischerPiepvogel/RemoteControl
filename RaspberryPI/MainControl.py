@@ -46,7 +46,7 @@ def software_update():
   
 root = tk.Tk()
 root.title("MainControl")
-root.bind('<Escape>',self.software_exit)
+root.bind('<Escape>',software_exit)
 #app=FullScreenApp(root)
 root.bind
 #root.attributes('-fullscreen', True)
