@@ -1,4 +1,4 @@
-from tkinter import messagebox
+from Tkinter import messagebox
 import thread
 import Tkinter as tk
 import os
