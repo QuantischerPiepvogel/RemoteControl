@@ -15,8 +15,8 @@ def software_update(*args):
   
 root = tk.Tk()
 root.title("MainControl")
-root.bind('<Escape>',software_exit)
-root.bind('<Enter>',software_update)
+root.bind('<F4>',software_exit)
+root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
 root.mainloop()
 
