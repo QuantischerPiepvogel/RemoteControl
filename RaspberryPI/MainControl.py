@@ -14,7 +14,7 @@ root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
 root.bind
-#root.attributes('-fullscreen', True)
+root.attributes('-fullscreen', True)
 root.mainloop()
 
 #frame.width = 100
@@ -28,7 +28,3 @@ root.mainloop()
 
 #update_button = Button(frame, text="U", fg="black", command="software_update()", width=50, height=50)
 #update_button.place(60, 10)
-
-#root.mainloop()
-
-print("RemoteControl.py was sucessfully started")
