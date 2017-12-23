@@ -10,9 +10,14 @@ def software_exit(*args):
   exit()
   #os.system("sudo python RaspberryPI/Updater.py")
   
+def toggleFullscreen(*args):
+  
+  root.attributes('-fullscreen', False)
+  
 root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
+root.bind('<Enter>',toggleFullscreen)
 root.bind
 root.attributes('-fullscreen', True)
 root.mainloop()
