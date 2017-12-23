@@ -1,6 +1,8 @@
 from Tkinter import *
 import os
 
+print("RemoteControl.py was sucessfully started")
+
 def software_exit():
   
   if messagebox.askokcancel("Question","Do you really want to close the program?"):
