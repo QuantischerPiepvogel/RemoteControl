@@ -23,8 +23,8 @@ def onKeyPress():
   print("loool")
 
 root = tk.Tk()
-root.geometry("800x600")
-root.bind('<KeyPress>',onKeyPress)
+root.title("MainControl")
+root.attributes('-fullscreen', True)
 root.mainloop()
 #frame.pack()
 
