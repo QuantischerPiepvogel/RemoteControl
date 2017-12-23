@@ -15,7 +15,7 @@ def software_update(*args):
   
 root = tk.Tk()
 root.title("MainControl")
-root.bind('<F4>',software_exit)
+root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm    key bindings
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
 root.mainloop()
