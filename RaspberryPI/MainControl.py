@@ -3,21 +3,20 @@ import os
 
 print("RemoteControl.py was sucessfully started")
 
-#def software_exit():
+def software_exit():
   
-  #if messagebox.askokcancel("Question","Do you really want to close the program?"):
+  if messagebox.askokcancel("Question","Do you really want to close the program?"):
     
-    #exit()
+    exit()
   
-#def software_update():
+def software_update():
   
-  #if messagebox.askokcancel("Question","Do you really want to update the program?"):
+  if messagebox.askokcancel("Question","Do you really want to update the program?"):
     
     
-    #os.system("cd RemoteControl/RaspberryPI")
-    #os.system("sudo python Updater.py")
+    os.system("sudo python RaspberryPI/Updater.py")
     
-    #exit()
+    exit()
   
 
 #root = Tk()
