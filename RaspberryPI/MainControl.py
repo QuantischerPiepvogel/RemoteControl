@@ -5,9 +5,15 @@ print("RemoteControl.py was sucessfully started")
 
 def software_exit():
   
-  if messagebox.askokcancel("Question","Do you really want to close the program?"):
+  if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
     
-    exit()
+    software_update()
+    
+  else:
+    
+    if messagebox.askokcancel("Question","Do you really want to close the program?"):
+    
+      exit()
   
 def software_update():
   
@@ -24,6 +30,8 @@ def onKeyPress():
 
 root = tk.Tk()
 root.title("MainControl")
+root.bind('<Escape>', software_exit)
+root.bind
 root.attributes('-fullscreen', True)
 root.mainloop()
 #frame.pack()
