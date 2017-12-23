@@ -5,24 +5,30 @@ print("RemoteControl.py was sucessfully started")
 
 def software_exit():
   
-  if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
+  software_update()
+  exit()
+  
+  #if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
     
-    software_update()
+    #software_update()
     
-  else:
+  #else:
     
-    if messagebox.askokcancel("Question","Do you really want to close the program?"):
+    #if messagebox.askokcancel("Question","Do you really want to close the program?"):
     
-      exit()
+      #exit()
   
 def software_update():
   
-  if messagebox.askokcancel("Question","Do you really want to update the program?"):
+  os.system("sudo python RaspberryPI/Updater.py")
+  exit()
+  
+  #if messagebox.askokcancel("Question","Do you really want to update the program?"):
     
     
-    os.system("sudo python RaspberryPI/Updater.py")
+    #os.system("sudo python RaspberryPI/Updater.py")
     
-    exit()
+    #exit()
   
 def onKeyPress():
   
