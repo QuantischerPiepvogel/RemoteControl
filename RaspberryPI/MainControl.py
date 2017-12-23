@@ -1,4 +1,4 @@
-from Tkinter import *
+import Tkinter as tk
 import os
 
 print("RemoteControl.py was sucessfully started")
@@ -18,9 +18,14 @@ def software_update():
     
     exit()
   
+def onKeyPress():
+  
+  print("loool")
 
-#root = Tk()
-#frame = Frame(root)
+root = tk.Tk()
+root.geometry("800x600")
+root.bind('<KeyPress>',onKeyPress)
+root.mainloop()
 #frame.pack()
 
 #frame.width = 100
