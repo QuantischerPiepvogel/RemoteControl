@@ -1,8 +1,7 @@
 # info: https://www.youtube.com/watch?v=FV7eiqN01hc
 
-import os, thread
+import os
 
 os.system("git pull")
 print("RemoteControl was updated")
-thread.start_new_thread(os.system, ("sudo python RaspberryPI/MainControl.py",))
-exit()
+os.system("sudo python RaspberryPI/MainControl.py")
