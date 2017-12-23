@@ -38,3 +38,5 @@ def software_update():
 #root.mainloop()
 
 print("RemoteControl.py was sucessfully started")
+
+#versteckte botschaft
