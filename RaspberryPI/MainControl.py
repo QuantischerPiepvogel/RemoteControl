@@ -2,6 +2,8 @@ import thread
 import Tkinter as tk
 import os
 
+fullscreen = false;
+
 print("RemoteControl.py was sucessfully started")
 
 def software_exit(*args):
@@ -12,14 +14,15 @@ def software_exit(*args):
   
 def toggleFullscreen(*args):
   
-  root.attributes('-fullscreen', False)
+  fullscreen = !fullscreen
+  root.attributes('-fullscreen', fullscreen)
   
 root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
 root.bind('<Enter>',toggleFullscreen)
 root.bind
-root.attributes('-fullscreen', True)
+root.attributes('-fullscreen', fullscreen)
 root.mainloop()
 
 #frame.width = 100
