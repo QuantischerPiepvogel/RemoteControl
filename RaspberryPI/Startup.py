@@ -1,5 +1,6 @@
 import time, os
 import RPi.GPIO as GPIO
+import thread
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(33, GPIO.IN)
