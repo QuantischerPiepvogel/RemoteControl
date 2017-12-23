@@ -2,25 +2,21 @@ import thread
 import Tkinter as tk
 import os
 
-fullscreen = False;
-
 print("RemoteControl.py was sucessfully started")
 
 def software_exit(*args):
   
+  exit()
+  
+def software_update(*args):
+  
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
-  #os.system("sudo python RaspberryPI/Updater.py")
-  
-def toggleFullscreen(*args):
-  
-  fullscreen = not fullscreen
-  root.attributes('-fullscreen', fullscreen)
   
 root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
-root.bind('<Enter>',toggleFullscreen)
+root.bind('<Enter>',software_update)
 root.bind
 root.attributes('-fullscreen', fullscreen)
 root.mainloop()
