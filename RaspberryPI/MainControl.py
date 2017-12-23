@@ -1,4 +1,3 @@
-from Tkinter import messagebox
 import thread
 import Tkinter as tk
 import os
@@ -7,54 +6,16 @@ print("RemoteControl.py was sucessfully started")
 
 def software_exit(*args):
   
-  #software_update()
-  #exit()
-  
-  if messagebox.askokcancel("Question","Do you want to update the program before closing?"):
-    
-    software_update()
-    
-  else:
-    
-    if messagebox.askokcancel("Question","Do you really want to close the program?"):
-    
-      exit()
-  
-def software_update():
-  
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py"))
-  #os.system("sudo python RaspberryPI/Updater.py")
   exit()
-  
-  #if messagebox.askokcancel("Question","Do you really want to update the program?"):
-    
-    
-    #os.system("sudo python RaspberryPI/Updater.py")
-    
-    #exit()
-
-#class FullScreenApp(object):
-    #def __init__(self, master, **kwargs):
-        #self.master=master
-        #pad=3
-        #self._geom='200x200+0+0'
-        #master.geometry("{0}x{1}+0+0".format(
-            #master.winfo_screenwidth()-pad, master.winfo_screenheight()-pad))
-        #master.bind('<Escape>',self.toggle_geom)            
-    #def toggle_geom(self,event):
-        #geom=self.master.winfo_geometry()
-        #print(geom,self._geom)
-        #self.master.geometry(self._geom)
-        #self._geom=geom
+  #os.system("sudo python RaspberryPI/Updater.py")
   
 root = tk.Tk()
 root.title("MainControl")
 root.bind('<Escape>',software_exit)
-#app=FullScreenApp(root)
 root.bind
 #root.attributes('-fullscreen', True)
 root.mainloop()
-#frame.pack()
 
 #frame.width = 100
 #frame.height = 100
