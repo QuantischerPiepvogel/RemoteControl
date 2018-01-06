@@ -3,7 +3,7 @@ import Tkinter as tk
 import os
 
 print("RemoteControl.py was sucessfully started")
-
+#cool
 def software_exit(*args):
   
   exit()
