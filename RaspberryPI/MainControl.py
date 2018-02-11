@@ -12,6 +12,7 @@ print("RemoteControl.py was sucessfully started")
 #cool
 def software_exit(*args):
   running = False
+  os.system("sudo python RaspberryPI/Startup.py")
   exit()
   
 def software_update(*args):
