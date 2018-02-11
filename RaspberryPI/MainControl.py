@@ -6,16 +6,16 @@ import time
 
 bus = smbus.SMBus(1)
 ARDUINO_ADDR = 0x15
-running = true
+running = True
 
 print("RemoteControl.py was sucessfully started")
 #cool
 def software_exit(*args):
-  running = false
+  running = False
   exit()
   
 def software_update(*args):
-  running = false
+  running = False
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
 
