@@ -1,18 +1,35 @@
 import thread
 import Tkinter as tk
 import os
+import smbus
+import time
+
+bus = smbus.SMBus(1)
+ARDUINO_ADDR = 0x15
+running = true
 
 print("RemoteControl.py was sucessfully started")
 #cool
 def software_exit(*args):
-  
+  running = false
   exit()
   
 def software_update(*args):
-  
+  running = false
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
-  
+
+def workerThread(*args):
+  global bus, ARDUINO_ADDR
+  while running:
+    bus.write_byte(ARDUINO_ADDR, 10)
+    pan = bus.read_byte_data(ARDUINO_ADDR)
+    bus.write_byte(ARDUINO_ADDR, 11)
+    tilt = bus.read_byte_data(ARDUINO_ADDR)
+    bus.write_byte(ARDUINO_ADDR, 12)
+    bus.write_byte(ARDUINO_ADDR, tilt)
+    time.sleeep(0.1)
+
 root = tk.Tk()
 root.title("MainControl")
 root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm    key bindings
