@@ -33,6 +33,7 @@ def workerThread(*args):
 
 root = tk.Tk()
 root.title("MainControl")
+root.config(bg="green")
 root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm    key bindings
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
