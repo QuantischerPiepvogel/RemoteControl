@@ -22,6 +22,7 @@ def shiftOne(bool):
   GPIO.output(12, bool)
   GPIO.output(18, GPIO.HIGH)
   GPIO.output(18, GPIO.LOW)
+  time.sleep(0.001)
 
 while GPIO.input(33) == GPIO.LOW:
   addRGB(1,0,0)
