@@ -13,7 +13,7 @@ class App:
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
-    self.exit_button = Button(root, text="X", fg="black", command=master.software_exit, width=50, height=50)
+    self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=50, height=50)
     self.exit_button.place(10, 10)
 
 print("RemoteControl.py was sucessfully started")
