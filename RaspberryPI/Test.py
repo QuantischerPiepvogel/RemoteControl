@@ -3,19 +3,19 @@ import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BOARD)
 
-GPIO.setup(17, GPIO.OUT) #Clock
-GPIO.setup(27, GPIO.OUT) #Latch
-GPIO.setup(22, GPIO.OUT) #Data
+GPIO.setup(8, GPIO.OUT) #Clock
+GPIO.setup(10, GPIO.OUT) #Latch
+GPIO.setup(12, GPIO.OUT) #Data
 
 def shiftOne(bool):
-  GPIO.output(22, bool)
+  GPIO.output(12, bool)
   time.sleep(0.05)
-  GPIO.output(17, GPIO.HIGH)
+  GPIO.output(8, GPIO.HIGH)
   time.sleep(0.05)
-  GPIO.output(27, GPIO.HIGH)
+  GPIO.output(10, GPIO.HIGH)
   time.sleep(0.1)
-  GPIO.output(17, GPIO.LOW)
-  GPIO.output(27, GPIO.LOW)
+  GPIO.output(8, GPIO.LOW)
+  GPIO.output(10, GPIO.LOW)
   time.sleep(0.1)
 
 while True:
