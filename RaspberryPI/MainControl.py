@@ -1,8 +1,10 @@
 import thread
+from Tkinter import *
 import Tkinter as tk
 import os
 import smbus
 import time
+
 
 bus = smbus.SMBus(1)
 ARDUINO_ADDR = 0x15
@@ -38,7 +40,7 @@ def workerThread(*args):
     bus.write_byte(ARDUINO_ADDR, tilt)
     time.sleeep(0.1)
 
-root = tk.Tk()
+root = Tk()
 app = App(root)
 root.title("MainControl")
 root.config(bg="green")
