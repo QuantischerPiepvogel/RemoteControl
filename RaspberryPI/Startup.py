@@ -8,7 +8,7 @@ GPIO.setup(33, GPIO.IN)
 
 
 
-while GPIO.input(33) == GPIO.HIGH:
+while GPIO.input(33) == GPIO.LOW:
   
   time.sleep(0.5)
 
