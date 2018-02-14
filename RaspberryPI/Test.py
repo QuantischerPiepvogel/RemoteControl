@@ -32,7 +32,7 @@ while GPIO.input(33) == GPIO.LOW:
   #refresh()
   #time.sleep(0.1)
   shiftOne(GPIO.HIGH)
-  shiftONe(GPIO.LOW)
+  shiftOne(GPIO.LOW)
   refresh()
   time.sleep(0.1)
   shiftOne(GPIO.LOW)
