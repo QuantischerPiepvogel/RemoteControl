@@ -10,9 +10,9 @@ GPIO.setup(33, GPIO.IN)
 
 
 def addRGB(r, g, b):
-  shiftOne(r)
-  shiftOne(g)
   shiftOne(b)
+  shiftOne(g)
+  shiftOne(r)
 
 def refresh():
   GPIO.output(16, GPIO.HIGH)
