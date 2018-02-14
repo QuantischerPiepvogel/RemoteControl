@@ -8,8 +8,15 @@ bus = smbus.SMBus(1)
 ARDUINO_ADDR = 0x15
 running = True
 
+class App:
+  def __init__(self, master):
+    frame = Frame(master)
+    frame.pack()
+    self.exit_button = Button(root, text="X", fg="black", command=master.software_exit, width=50, height=50)
+    self.exit_button.place(10, 10)
+
 print("RemoteControl.py was sucessfully started")
-#cool
+
 def software_exit(*args):
   running = False
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Startup.py",))
@@ -32,15 +39,13 @@ def workerThread(*args):
     time.sleeep(0.1)
 
 root = tk.Tk()
+app = App(root)
 root.title("MainControl")
 root.config(bg="green")
 root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm    key bindings
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
 root.mainloop()
-
-root.exit_button = Button(root, text="X", fg="black", command="software_exit", width=50, height=50)
-root.exit_button.place(10, 10)
 
 #update_button = Button(frame, text="U", fg="black", command="software_update()", width=50, height=50)
 #update_button.place(60, 10)
