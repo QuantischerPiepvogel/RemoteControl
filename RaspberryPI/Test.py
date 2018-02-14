@@ -8,6 +8,7 @@ GPIO.setup(10, GPIO.OUT) #Latch
 GPIO.setup(12, GPIO.OUT) #Data
 
 def shiftOne(bool):
+  print("Set to: " + bool)
   GPIO.output(12, bool)
   time.sleep(0.05)
   GPIO.output(8, GPIO.HIGH)
