@@ -1,6 +1,5 @@
 import thread
 from Tkinter import *
-import Tkinter as tk
 import os
 import smbus
 import time
