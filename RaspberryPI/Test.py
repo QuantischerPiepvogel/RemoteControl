@@ -29,7 +29,7 @@ while GPIO.input(33) == GPIO.LOW:
   time.sleep(0.0001)
   addRGB(1,0,0)
   refresh()
-  time.sleep(0.0002)
+  time.sleep(0.0003)
 
   #shiftOne(GPIO.HIGH)
   #shiftOne(GPIO.LOW)
