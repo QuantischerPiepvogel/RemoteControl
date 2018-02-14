@@ -29,4 +29,4 @@ while GPIO.input(33) == GPIO.LOW:
   shiftOne(GPIO.LOW)
   time.sleep(0.5)
 
-  print("STOPPED")
+print("STOPPED")
