@@ -10,14 +10,14 @@ GPIO.setup(12, GPIO.OUT) #Data
 def shiftOne(bool):
   print("Set to: " + str(bool))
   GPIO.output(12, bool)
-  time.sleep(0.05)
+  time.sleep(0.01)
   GPIO.output(8, GPIO.HIGH)
-  time.sleep(0.05)
+  time.sleep(0.01)
   GPIO.output(10, GPIO.HIGH)
-  time.sleep(0.1)
+  time.sleep(0.01)
   GPIO.output(8, GPIO.LOW)
   GPIO.output(10, GPIO.LOW)
-  time.sleep(0.1)
+  time.sleep(0.01)
 
 while True:
   shiftOne(GPIO.HIGH)
