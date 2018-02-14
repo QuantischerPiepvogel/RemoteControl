@@ -24,11 +24,17 @@ def shiftOne(bool):
   GPIO.output(18, GPIO.LOW)
 
 while GPIO.input(33) == GPIO.LOW:
-  shiftOne(GPIO.HIGH)
+  addRGB(1,0,0)
   refresh()
   time.sleep(0.1)
-  shiftOne(GPIO.LOW)
+  addRGB(0,0,0)
   refresh()
   time.sleep(0.1)
+  #shiftOne(GPIO.HIGH)
+  #refresh()
+  #time.sleep(0.1)
+  #shiftOne(GPIO.LOW)
+  #refresh()
+  #time.sleep(0.1)
 
 print("STOPPED")
