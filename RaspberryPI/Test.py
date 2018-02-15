@@ -34,21 +34,32 @@ def shiftOne(bool):
   GPIO.output(18, GPIO.HIGH)
   GPIO.output(18, GPIO.LOW)
 
-LEDValues = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
-  
+#LEDValues = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+
+AUS     = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+ROT     = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+GELB    = [1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0]
+GRUEN   = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+CYAN    = [0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1]
+BLAU    = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+MAGENTA = [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1]
+WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+sleeptime = 0.1
+
 while GPIO.input(33) == GPIO.LOW:
   
-  LEDValues = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
-  writeRow(LEDValues)
-  time.sleep(1)
-  LEDValues = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
-  writeRow(LEDValues)
-  time.sleep(1)
-  LEDValues = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
-  writeRow(LEDValues)
-  time.sleep(1)
-  LEDValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  writeRow(LEDValues)
-  time.sleep(1)
+  writeRow(ROT)
+  time.sleep(sleeptime)
+  writeRow(GELB)
+  time.sleep(sleeptime)
+  writeRow(GRUEN)
+  time.sleep(sleeptime)
+  writeRow(CYAN)
+  time.sleep(sleeptime)
+  writeRow(BLAU)
+  time.sleep(sleeptime)
+  writeRow(MAGENTA)
+  time.sleep(sleeptime)
 
 print("STOPPED")
