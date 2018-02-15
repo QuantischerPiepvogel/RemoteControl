@@ -13,9 +13,9 @@ class App:
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
-    self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=50, height=50)
+    self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
-    self.update_button = Button(root, text="U", fg="black", command=software_update, width=50, height=50)
+    self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
 
 print("RemoteControl.py was sucessfully started")
