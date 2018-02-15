@@ -8,6 +8,13 @@ GPIO.setup(16, GPIO.OUT) #Latch
 GPIO.setup(12, GPIO.OUT) #Data
 GPIO.setup(33, GPIO.IN)
 
+def writeRow(values):
+  
+  for led in range(0, values.amount()):
+    
+    shiftOne(values[values.amount()-1-led])
+    
+  refresh()
 
 def addRGB(r, g, b):
   shiftOne(b)
@@ -26,15 +33,18 @@ def shiftOne(bool):
   GPIO.output(18, GPIO.HIGH)
   GPIO.output(18, GPIO.LOW)
 
+LEDValues = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+  
 while GPIO.input(33) == GPIO.LOW:
-  shiftOne(1)
-  refresh()
-  time.sleep(0.1)
   
-  for x in range(0, 23):
-  
-    shiftOne(0)
-    refresh()
-    time.sleep(0.1)
+  LEDValues = [1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+  writeRow(LEDValues)
+  time.sleep(1)
+  LEDValues = [0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1]
+  writeRow(LEDValues)
+  time.sleep(1)
+  LEDValues = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+  writeRow(LEDValues)
+  time.sleep(1)
 
 print("STOPPED")
