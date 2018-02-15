@@ -14,6 +14,7 @@ def writeRow(values):
     
     print(led)
     shiftOne(values[len(values)-1-led])
+    time.sleep(0.001)
     
   refresh()
 
@@ -45,6 +46,9 @@ while GPIO.input(33) == GPIO.LOW:
   writeRow(LEDValues)
   time.sleep(1)
   LEDValues = [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]
+  writeRow(LEDValues)
+  time.sleep(1)
+  LEDValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   writeRow(LEDValues)
   time.sleep(1)
 
