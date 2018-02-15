@@ -31,7 +31,7 @@ while GPIO.input(33) == GPIO.LOW:
   refresh()
   time.sleep(1)
   
-  for x in range(0, 23)
+  for x in range(0, 23):
   
     shiftOne(0)
     refresh()
