@@ -10,9 +10,9 @@ GPIO.setup(33, GPIO.IN)
 
 def writeRow(values):
   
-  for led in range(0, values.amount()):
+  for led in range(0, len(values)):
     
-    shiftOne(values[values.amount()-1-led])
+    shiftOne(values[len(values)-1-led])
     
   refresh()
 
