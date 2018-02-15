@@ -14,7 +14,6 @@ def writeRow(values):
     
     print(led)
     shiftOne(values[len(values)-1-led])
-    time.sleep(0.001)
     
   refresh()
 
