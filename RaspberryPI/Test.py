@@ -12,6 +12,7 @@ def writeRow(values):
   
   for led in range(0, len(values)):
     
+    print(led)
     shiftOne(values[len(values)-1-led])
     
   refresh()
