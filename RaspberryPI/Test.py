@@ -48,7 +48,7 @@ RGB = [0, 0, 0]
 
 sleeptime = 0.0025
 counter = 0
-fadetime = 1530
+fadetime = 1700
 
 while GPIO.input(33) == GPIO.LOW:
   
@@ -79,7 +79,6 @@ while GPIO.input(33) == GPIO.LOW:
     RGB[1] = 0
     RGB[2] = 1530-counter
   
-  RGB[0] = RGB[0]*2
   
   
   writeRow(ROT)
