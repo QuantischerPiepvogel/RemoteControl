@@ -69,7 +69,7 @@ while GPIO.input(33) == GPIO.LOW:
           
           LEDValues[g*3] = 0
           
-      else if counter <= 510:
+      elif counter <= 510:
         
         LEDValues[g*3] = 255
         LEDValues[g*3+2] = 0
@@ -82,7 +82,7 @@ while GPIO.input(33) == GPIO.LOW:
           
           LEDValues[g*3+1] = 0
           
-      else if counter <= 765:
+      elif counter <= 765:
         
         LEDValues[g*3+1] = 255
         LEDValues[g*3+2] = 0
