@@ -46,18 +46,18 @@ WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 sleeptime = 0.5
 counter = 0
-fadetime = 100
+fadetime = 10
 
 while GPIO.input(33) == GPIO.LOW:
   
   print(counter)
   
-  for t in range(0, 100):
+  for t in range(0, 10):
     
     writeRow(ROT)
-    time.sleep(1*counter/fadetime)
+    time.sleep(0.1*counter/fadetime)
     writeRow(GRUEN)
-    time.sleep(1*(fadetime-counter)/fadetime)
+    time.sleep(0.1*(fadetime-counter)/fadetime)
     
   counter += 1
   
