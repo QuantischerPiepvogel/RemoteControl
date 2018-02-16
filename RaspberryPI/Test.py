@@ -46,7 +46,7 @@ WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 sleeptime = 0.5
 counter = 0
-fadetime = 1000
+fadetime = 500
 
 while GPIO.input(33) == GPIO.LOW:
   
