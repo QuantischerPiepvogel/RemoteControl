@@ -50,12 +50,14 @@ fadetime = 1000
 
 while GPIO.input(33) == GPIO.LOW:
   
+  print(counter)
+  
   for t in range(0, 100):
     
     writeRow(ROT)
-    time.sleep(0.0001*counter/fadetime)
+    time.sleep(0.01*counter/fadetime)
     writeRow(GRUEN)
-    time.sleep(0.0001*(fadetime-counter)/fadetime)
+    time.sleep(0.01*(fadetime-counter)/fadetime)
     
   counter += 1
   
