@@ -83,7 +83,7 @@ while GPIO.input(33) == GPIO.LOW:
   time.sleep(0.01*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
   writeRow(GRUEN)
   time.sleep(0.01*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
-  writeRow(BLUE)
+  writeRow(BLAU)
   time.sleep(0.01*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
     
   counter += 1
