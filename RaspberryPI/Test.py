@@ -49,7 +49,7 @@ counter = 0
 
 while GPIO.input(33) == GPIO.LOW:
   
-  for t in range(0, 100):
+  for t in range(0, 1000):
     
     writeRow(ROT)
     time.sleep(0.0001*t)
