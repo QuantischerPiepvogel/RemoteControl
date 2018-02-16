@@ -46,7 +46,7 @@ WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 RGB = [0, 0, 0]
 
-sleeptime = 0.5
+sleeptime = 0.0025
 counter = 0
 fadetime = 1530
 
@@ -79,15 +79,33 @@ while GPIO.input(33) == GPIO.LOW:
     RGB[1] = 0
     RGB[2] = 1530-counter
   
-  RGB[0] = RGB[0]*1.2
+  RGB[0] = RGB[0]*1.3
   
   
   writeRow(ROT)
-  time.sleep(0.005*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(sleeptime*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
   writeRow(GRUEN)
-  time.sleep(0.005*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(sleeptime*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
   writeRow(BLAU)
-  time.sleep(0.005*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(sleeptime*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(ROT)
+  time.sleep(sleeptime*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(GRUEN)
+  time.sleep(sleeptime*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(BLAU)
+  time.sleep(sleeptime*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(ROT)
+  time.sleep(sleeptime*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(GRUEN)
+  time.sleep(sleeptime*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(BLAU)
+  time.sleep(sleeptime*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(ROT)
+  time.sleep(sleeptime*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(GRUEN)
+  time.sleep(sleeptime*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
+  writeRow(BLAU)
+  time.sleep(sleeptime*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
     
   counter += 1
   
