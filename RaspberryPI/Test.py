@@ -79,7 +79,7 @@ while GPIO.input(33) == GPIO.LOW:
     RGB[1] = 0
     RGB[2] = 1530-counter
   
-  RGB[0] = RGB[0]*1.3
+  RGB[0] = RGB[0]*2
   
   
   writeRow(ROT)
