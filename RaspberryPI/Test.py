@@ -55,9 +55,9 @@ while GPIO.input(33) == GPIO.LOW:
   for t in range(0, 100):
     
     writeRow(ROT)
-    time.sleep(0.0001*counter/fadetime)
+    time.sleep(1*counter/fadetime)
     writeRow(GRUEN)
-    time.sleep(0.0001*(fadetime-counter)/fadetime)
+    time.sleep(1*(fadetime-counter)/fadetime)
     
   counter += 1
   
