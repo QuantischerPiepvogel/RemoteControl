@@ -27,7 +27,7 @@ def addRGB(r, g, b):
 def refresh():
   GPIO.output(16, GPIO.HIGH)
   GPIO.output(16, GPIO.LOW)
-
+  
 def shiftOne(bool):
   GPIO.output(12, bool)
   GPIO.output(18, GPIO.HIGH)
@@ -78,13 +78,16 @@ while GPIO.input(33) == GPIO.LOW:
     RGB[0] = 255
     RGB[1] = 0
     RGB[2] = 1530-counter
-    
+  
+  RGB[0] = RGB[0]*1.2
+  
+  
   writeRow(ROT)
-  time.sleep(0.01*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(0.005*RGB[0]/(RGB[0]+RGB[1]+RGB[2]))
   writeRow(GRUEN)
-  time.sleep(0.01*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(0.005*RGB[1]/(RGB[0]+RGB[1]+RGB[2]))
   writeRow(BLAU)
-  time.sleep(0.01*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
+  time.sleep(0.005*RGB[2]/(RGB[0]+RGB[1]+RGB[2]))
     
   counter += 1
   
