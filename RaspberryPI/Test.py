@@ -56,7 +56,7 @@ while GPIO.input(33) == GPIO.LOW:
     writeRow(GRUEN)
     time.sleep(0.0001*(100-t))
     
-  counter++
+  counter += 1
   
   if counter > 100:
     
