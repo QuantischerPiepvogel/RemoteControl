@@ -45,20 +45,21 @@ MAGENTA = [1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 
 WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 
 sleeptime = 0.5
+counter = 0
 
 while GPIO.input(33) == GPIO.LOW:
   
-  writeRow(ROT)
-  time.sleep(sleeptime)
-  writeRow(GELB)
-  time.sleep(sleeptime)
-  writeRow(GRUEN)
-  time.sleep(sleeptime)
-  writeRow(CYAN)
-  time.sleep(sleeptime)
-  writeRow(BLAU)
-  time.sleep(sleeptime)
-  writeRow(MAGENTA)
-  time.sleep(sleeptime)
+  for t in range(0, 100):
+    
+    writeRow(ROT)
+    time.sleep(0.0001*t)
+    writeRow(GRUEN)
+    time.sleep(0.0001*(100-t))
+    
+  counter++
+  
+  if counter > 100:
+    
+    counter = 0;
 
 print("STOPPED")
