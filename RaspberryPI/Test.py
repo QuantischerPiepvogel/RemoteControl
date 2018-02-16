@@ -46,7 +46,7 @@ WEISS   = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
 
 RGB = [0, 0, 0]
 
-sleeptime = 0.0025
+sleeptime = 0.005
 counter = 0
 fadetime = 1700
 
