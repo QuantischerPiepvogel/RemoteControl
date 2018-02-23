@@ -26,7 +26,8 @@ class App:
     self.tilt_value.place(x=10, y=100)
     self.tilt_value.insert(END, "tilt\n")
     value = bus.read_byte(I2C_Arduino_Joystick)
-    self.tilt_value.insert(END, "%02d" % value)
+    self.tilt_value.insert(END,  value)
+#"%02d" %
 
 print("RemoteControl.py was sucessfully started")
 
