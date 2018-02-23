@@ -25,7 +25,10 @@ class App:
     self.tilt_value = Text(root, height=2, width=4)
     self.tilt_value.place(x=10, y=100)
     self.tilt_value.insert(END, "tilt\n")
-    value = bus.read_byte(I2C_Arduino_Joystick)
+    try:
+      value = bus.read_byte(I2C_Arduino_Joystick)
+    else:
+      value = "ERR"
     self.tilt_value.insert(END,  value)
 #"%02d" %
 
