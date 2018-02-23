@@ -15,8 +15,8 @@ try:
   bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
 
 except BaseException as e:
-
-    self.tilt_value.insert(END,  value)
+  
+  print("loool didnt work")
 
 ARDUINO_ADDR = 0x15
 running = True
