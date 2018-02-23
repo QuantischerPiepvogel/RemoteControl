@@ -9,8 +9,15 @@ import smbus
 bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
 I2C_Arduino_Non_Joystick = 0x09
-bus.write_byte(I2C_Arduino_Joystick, 0xFF)
-bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
+try:
+
+      bus.write_byte(I2C_Arduino_Joystick, 0xFF)
+      bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
+      
+    except BaseException as e:
+
+    self.tilt_value.insert(END,  value)
+
 ARDUINO_ADDR = 0x15
 running = True
 
