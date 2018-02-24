@@ -37,7 +37,6 @@ class App:
     except BaseException as e:
       value = "ERR"
     self.tilt_value.insert(END,  value)
-#"%02d" %
 
 print("RemoteControl.py was sucessfully started")
 
