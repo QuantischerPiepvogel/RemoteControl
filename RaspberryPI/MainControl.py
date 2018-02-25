@@ -33,7 +33,7 @@ class App:
     self.tilt_value.place(x=10, y=100)
     self.tilt_value.insert(END, "tilt\n")
     try:
-      value = bus.read_byte(I2C_Arduino_Joystick)
+      value = bus.read_byte(I2C_Arduino_Non_Joystick)
     except BaseException as e:
       value = "ERR"
     self.tilt_value.insert(END,  value)
