@@ -14,4 +14,4 @@ DEVICE_REG_LEDOUT0 = 0x1d
 #Write an array of registers
 #ledout_values = [0xff, 0xff, 0xff, 0xff, 0xff, 0xff]
 #bus.write_i2c_block_data(DEVICE_ADDRESS, DEVICE_REG_LEDOUT0, ledout_values)
-print bus.read_byte(DEVICE_ADDRESS)
+print(bus.read_byte(DEVICE_ADDRESS))
