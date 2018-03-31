@@ -56,7 +56,7 @@ def workerThread():
   print("Blupsebaer")
   while 1:
     try:
-      bus.write_byte(I2C_ARDUINO_Joystick, 0)
+      #bus.write_byte(I2C_ARDUINO_Joystick, 0)
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
       value = "ERR"
