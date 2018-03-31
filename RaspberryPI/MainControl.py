@@ -5,7 +5,7 @@ import smbus
 import time
 import smbus
 
-tilt_value_text = "Heinz"
+tilt_value_text = None
 
 bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
@@ -26,7 +26,7 @@ class App:
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
-    #tilt_value_text = StringVar()
+    tilt_value_text = StringVar()
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
