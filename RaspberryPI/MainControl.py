@@ -5,6 +5,7 @@ import smbus
 import time
 import smbus
 
+tilt_value_text = StringVar()
 
 bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
@@ -25,18 +26,18 @@ class App:
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
+    
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
-    self.tilt_value = Text(root, height=2, width=4)
+    self.tilt_value = Label(root, height=1, width=4, textvariable = tilt_value_text)
     self.tilt_value.place(x=10, y=100)
-    self.tilt_value.insert(END, "tilt\n")
     try:
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
       value = "ERR"
-    self.tilt_value.insert(END,  value)
+    tilt_value_text.set(value)
 
 print("RemoteControl.py was sucessfully started")
 
@@ -68,4 +69,15 @@ root.config(bg="green")
 root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-and-bindings.htm    key bindings
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
+
+while true:
+  try:
+    value = bus.read_byte(I2C_Arduino_Joystick)
+  except BaseException as e:
+    value = "ERR"
+  tilt_value_text.set(value)
+  delay(100)
+
+
+
 root.mainloop()
