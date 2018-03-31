@@ -23,22 +23,22 @@ ARDUINO_ADDR = 0x15
 running = True
 
 class App:
+  tilt_value_text = StringVar()
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
-    tilt_value_text = StringVar()
     print("TestERUS")
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
-    self.tilt_value = Label(root, height=1, width=4, textvariable = tilt_value_text)
+    self.tilt_value = Label(root, height=1, width=4, textvariable = self.tilt_value_text)
     self.tilt_value.place(x=10, y=100)
     try:
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
       value = "ERR"
-    tilt_value_text.set(value)
+    self.tilt_value_text.set(value)
 
 print("RemoteControl.py was sucessfully started")
 
@@ -76,7 +76,7 @@ while 1:
     value = bus.read_byte(I2C_Arduino_Joystick)
   except BaseException as e:
     value = "ERR"
-  tilt_value_text.set(value)
+  app.tilt_value_text.set(value)
   delay(100)
 
 
