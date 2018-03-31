@@ -71,11 +71,11 @@ def software_update(*args):
 def getData(reg):
   value = 0
   try:
-      bus.write_byte(I2C_Arduino_Joystick, reg)
-      value = bus.read_byte(I2C_Arduino_Joystick)
-    except BaseException as e:
-      value = "ERR"
-   return value
+    bus.write_byte(I2C_Arduino_Joystick, reg)
+    value = bus.read_byte(I2C_Arduino_Joystick)
+  except BaseException as e:
+    value = "ERR"
+  return value
 
 
 def workerThread():
