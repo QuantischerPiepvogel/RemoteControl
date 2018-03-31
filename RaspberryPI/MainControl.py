@@ -5,7 +5,7 @@ import smbus
 import time
 import smbus
 
-
+tilt_value_text = 0
 
 bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
