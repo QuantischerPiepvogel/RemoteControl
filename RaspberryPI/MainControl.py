@@ -67,18 +67,28 @@ def software_update(*args):
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
 
+
+def getData(reg):
+  value = 0
+  try:
+      bus.write_byte(I2C_Arduino_Joystick, reg)
+      value = bus.read_byte(I2C_Arduino_Joystick)
+    except BaseException as e:
+      value = "ERR"
+   return value
+
+
 def workerThread():
   #global bus, I2C_Arduino_Joystick
   print("Blupsebaer")
   while 1:
-    try:
-      bus.write_byte(I2C_Arduino_Joystick, 6)
-      value = bus.read_byte(I2C_Arduino_Joystick)
-    except BaseException as e:
-      value = "ERR"
-    app.tilt_value_text.set(value)
+    app.tilt_value_text.set(getData(0))
+    app.pan_value_text.set(getData(1))
+    app.button_value_text.set(getData(2))
+    app.rot_value_text.set(getData(3))
+    #app.tilt_value_text.set(getData(6))
     time.sleep(0.1)
-
+    
 root = Tk()
 app = App(root)
 root.title("MainControl")
