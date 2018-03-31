@@ -9,12 +9,8 @@ bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
 I2C_Arduino_Non_Joystick = 0x09
 try:
-
   bus.write_byte(I2C_Arduino_Joystick, 0xFF)
-  #bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
-
 except BaseException as e:
-  
   print("loool didnt work")
 
 ARDUINO_ADDR = 0x15
@@ -56,7 +52,7 @@ def workerThread():
   print("Blupsebaer")
   while 1:
     try:
-      bus.write_byte(I2C_Arduino_Joystick, 0)
+      bus.write_byte(I2C_Arduino_Joystick, 6)
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
       value = "ERR"
