@@ -21,11 +21,12 @@ ARDUINO_ADDR = 0x15
 running = True
 
 class App:
-  tilt_value_text = StringVar()
+
   def __init__(self, master):
     frame = Frame(master)
     frame.pack()
     print("TestERUS")
+    self.tilt_value_text = StringVar()
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
