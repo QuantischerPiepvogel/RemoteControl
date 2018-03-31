@@ -36,7 +36,7 @@ class App:
     
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
-    self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
+    self.update_button = Button(root, text="↻", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
     self.tilt_value = Label(root, height=1, width=4, textvariable = self.tilt_value_text)
     self.tilt_value.place(x=10, y=200)
