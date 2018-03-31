@@ -179,8 +179,8 @@ def workerThread():
   while running:
     app.var_tilt_value = getData(0)
     app.var_pan_value = getData(1)
-    app.var_button_value = getData(2)
-    app.var_rot_value = getData(3)
+    app.var_button_value = getData(3)
+    app.var_rot_value = getData(2)
     
     app.tilt_value_text.set("tilt: " + str(app.var_tilt_value))
     app.pan_value_text.set("pan: " + str(app.var_pan_value))
