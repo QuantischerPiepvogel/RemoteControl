@@ -51,16 +51,16 @@ def software_update(*args):
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
 
-def workerThread(*args):
-  global bus, ARDUINO_ADDR
-  while running:
-    bus.write_byte(ARDUINO_ADDR, 10)
-    pan = bus.read_byte_data(ARDUINO_ADDR)
-    bus.write_byte(ARDUINO_ADDR, 11)
-    tilt = bus.read_byte_data(ARDUINO_ADDR)
-    bus.write_byte(ARDUINO_ADDR, 12)
-    bus.write_byte(ARDUINO_ADDR, tilt)
-    time.sleeep(0.1)
+def workerThread():
+  #global bus, I2C_Arduino_Joystick
+  print("Blupsebaer")
+  while 1:
+    try:
+      value = bus.read_byte(I2C_Arduino_Joystick)
+    except BaseException as e:
+      value = "ERR"
+    app.tilt_value_text.set(value)
+    time.sleep(0.1)
 
 root = Tk()
 app = App(root)
@@ -70,16 +70,11 @@ root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-an
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
 
+thread.start_new_thread(workerThread,())
+
 
 root.mainloop()
-print("Blupsebaer")
-while 1:
-  try:
-    value = bus.read_byte(I2C_Arduino_Joystick)
-  except BaseException as e:
-    value = "ERR"
-  app.tilt_value_text.set(value)
-  time.sleep(0.1)
+
 
 
 
