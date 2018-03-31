@@ -13,4 +13,4 @@ while GPIO.input(33) == GPIO.LOW:
   time.sleep(0.5)
 
 print("Button has been pressed")
-os.system("sudo python RaspberryPI/MainControl.py")
+os.system("sudo python RaspberryPI/Updater.py")
