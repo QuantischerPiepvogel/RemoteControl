@@ -102,16 +102,16 @@ class App:
     self.settings.config(bg=rgb2hex(60, 60, 60))
 
     
-    self.tilt_value = Label(self.sensors, height=1, width=8, textvariable=self.tilt_value_text)
+    self.tilt_value = Label(self.sensors, height=1, width=8, textvariable=self.tilt_value_text, anchor=(W))
     self.tilt_value.place(x=10, y=40)
 
-    self.pan_value = Label(self.sensors, height=1, width=8, textvariable=self.pan_value_text)
+    self.pan_value = Label(self.sensors, height=1, width=8, textvariable=self.pan_value_text, anchor=(W))
     self.pan_value.place(x=82, y=40)
 
-    self.rot_value = Label(self.sensors, height=1, width=8, textvariable=self.rot_value_text)
+    self.rot_value = Label(self.sensors, height=1, width=8, textvariable=self.rot_value_text, anchor=(W))
     self.rot_value.place(x=10, y=10)
 
-    self.button_value = Label(self.sensors, height=1, width=8, textvariable=self.button_value_text)
+    self.button_value = Label(self.sensors, height=1, width=8, textvariable=self.button_value_text, anchor=(W))
     self.button_value.place(x=82, y=10)
 
 print("RemoteControl.py was sucessfully started")
