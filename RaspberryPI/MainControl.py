@@ -31,11 +31,11 @@ class App:
     self.frame.rowconfigure(1, weight=1, minsize=564)
 
     
-    self.home_icon=PhotoImage(file="C:/Users/Raphael/PycharmProjects/GUITest/icons/Home_Icon.png")
-    self.update_icon=PhotoImage(file="C:/Users/Raphael/PycharmProjects/GUITest/icons/Update_Icon.png")
-    self.exit_icon = PhotoImage(file="C:/Users/Raphael/PycharmProjects/GUITest/icons/Exit_Icon.png")
-    self.settings_icon = PhotoImage(file="C:/Users/Raphael/PycharmProjects/GUITest/icons/Settings_Icon.png")
-    self.sensors_icon = PhotoImage(file="C:/Users/Raphael/PycharmProjects/GUITest/icons/Sensors_Icon.png")
+    self.home_icon=PhotoImage(file="/images/Taskbar/Home_Icon.png")
+    self.update_icon=PhotoImage(file="/images/Taskbar/Update_Icon.png")
+    self.exit_icon = PhotoImage(file="/images/Taskbar/Exit_Icon.png")
+    self.settings_icon = PhotoImage(file="/images/Taskbar/Settings_Icon.png")
+    self.sensors_icon = PhotoImage(file="/images/Taskbar/Sensors_Icon.png")
 
     
     self.tilt_value_text = StringVar()
