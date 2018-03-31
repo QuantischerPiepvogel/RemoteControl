@@ -39,16 +39,16 @@ class App:
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
     self.tilt_value = Label(root, height=1, width=4, textvariable = self.tilt_value_text)
-    self.tilt_value.place(x=10, y=100)
+    self.tilt_value.place(x=10, y=200)
     
     self.pan_value = Label(root, height=1, width=4, textvariable = self.pan_value_text)
-    self.pan_value.place(x=10, y=100)
+    self.pan_value.place(x=70, y=200)
     
     self.rot_value = Label(root, height=1, width=4, textvariable = self.rot_value_text)
-    self.rot_value.place(x=10, y=100)
+    self.rot_value.place(x=10, y=150)
     
     self.button_value = Label(root, height=1, width=4, textvariable = self.button_value_text)
-    self.button_value.place(x=10, y=100)
+    self.button_value.place(x=70, y=150)
     try:
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
