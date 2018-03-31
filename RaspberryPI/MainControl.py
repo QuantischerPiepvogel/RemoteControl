@@ -12,7 +12,7 @@ I2C_Arduino_Non_Joystick = 0x09
 try:
 
   bus.write_byte(I2C_Arduino_Joystick, 0xFF)
-  bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
+  #bus.write_byte(I2C_Arduino_Non_Joystick, 0xFF)
 
 except BaseException as e:
   
