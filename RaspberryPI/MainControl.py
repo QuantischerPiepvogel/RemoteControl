@@ -23,12 +23,32 @@ class App:
     frame.pack()
     print("TestERUS")
     self.tilt_value_text = StringVar()
+    self.pan_value_text = StringVar()
+    self.rot_value_text = StringVar()
+    self.button_value_text = StringVar()
+    self.directRight_value_text = StringVar()
+    self.directLeft_value_text = StringVar()
+    self.powerRight_value_text = StringVar()
+    self.powerLeft_value_text = StringVar()
+    self.reverseRight_value_text = StringVar()
+    self.reverseLeft_value_text = StringVar()
+    
+    
     self.exit_button = Button(root, text="X", fg="black", command=software_exit, width=1, height=1)
     self.exit_button.place(x=70, y=10)
     self.update_button = Button(root, text="U", fg="black", command=software_update, width=1, height=1)
     self.update_button.place(x=10, y=10)
     self.tilt_value = Label(root, height=1, width=4, textvariable = self.tilt_value_text)
     self.tilt_value.place(x=10, y=100)
+    
+    self.pan_value = Label(root, height=1, width=4, textvariable = self.pan_value_text)
+    self.pan_value.place(x=10, y=100)
+    
+    self.rot_value = Label(root, height=1, width=4, textvariable = self.rot_value_text)
+    self.rot_value.place(x=10, y=100)
+    
+    self.button_value = Label(root, height=1, width=4, textvariable = self.button_value_text)
+    self.button_value.place(x=10, y=100)
     try:
       value = bus.read_byte(I2C_Arduino_Joystick)
     except BaseException as e:
