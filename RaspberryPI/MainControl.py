@@ -70,7 +70,7 @@ root.bind('<F4>',software_exit) #http://effbot.org/tkinterbook/tkinter-events-an
 root.bind('<F5>',software_update)
 root.attributes('-fullscreen', True)
 
-while true:
+while 1:
   try:
     value = bus.read_byte(I2C_Arduino_Joystick)
   except BaseException as e:
