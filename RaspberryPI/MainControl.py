@@ -72,7 +72,7 @@ root.attributes('-fullscreen', True)
 
 
 root.mainloop()
-print("Blupsebär")
+print("Blupsebaer")
 while 1:
   try:
     value = bus.read_byte(I2C_Arduino_Joystick)
