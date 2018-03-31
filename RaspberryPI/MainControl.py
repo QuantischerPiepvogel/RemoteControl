@@ -76,7 +76,7 @@ while 1:
   except BaseException as e:
     value = "ERR"
   app.tilt_value_text.set(value)
-  delay(100)
+  time.sleep(0.1)
 
 
 
