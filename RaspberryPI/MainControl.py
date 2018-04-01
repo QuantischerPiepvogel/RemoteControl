@@ -104,6 +104,9 @@ class App:
     self.joystick_visual = Canvas(self.home, width=300, height=300)
     self.joystick_visual.grid(row = 0, column = 0, sticky = (N, W))
     self.joystick_visual.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
+    
+    self.joystick_visual_2 = Canvas(self.home, width=300, height=300)
+    self.joystick_visual_2.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
 
     self.joystick_visual_densicolor = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphDensityColor.png")
     self.joystick_visual_background = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphBackground.png")
@@ -199,43 +202,44 @@ def workerThread():
     app.button_value_text.set("button: " + str(app.var_button_value))
     app.rot_value_text.set("rot: " + str(app.var_rot_value))
     
-
-    app.joystick_visual.delete("all")
-    app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
+    app.joystick_visual_2.delete("all")
+    app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
       
     w = app.var_tilt_value
     if w>50:
       w=50
-    app.joystick_visual.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     w = 100-app.var_tilt_value
     if w>50:
       w=50
-    app.joystick_visual.create_rectangle(200 - w, 4, 200, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_rectangle(200 - w, 4, 200, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     
     w = 100-app.var_pan_value
     if w>50:
       w=50
-    app.joystick_visual.create_rectangle(279, 99, 296, 100 + w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_rectangle(279, 99, 296, 100 + w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     w = app.var_pan_value
     if w>50:
       w=50
-    app.joystick_visual.create_rectangle(279, 200 - w, 296, 200, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_rectangle(279, 200 - w, 296, 200, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     w = app.var_rot_value * 2
     if w>100:
       w=100
-    app.joystick_visual.create_arc(36, 36, 263, 263, start=190-w, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_arc(36, 36, 263, 263, start=190-w, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     w = 200 - (app.var_rot_value *2)
     if w>100:
       w=100
-    app.joystick_visual.create_arc(36, 36, 263, 263, start=350, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual_2.create_arc(36, 36, 263, 263, start=350, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
       
-    app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
+    app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
     if app.var_button_value < 50:
-      app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
+      app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
     else:
-      app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
+      app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
+    app.joystick_visual = app.joystick_visual_2
+    app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
     
-    time.sleep(0.01)
+    time.sleep(0.05)
     
     
 root = Tk()
