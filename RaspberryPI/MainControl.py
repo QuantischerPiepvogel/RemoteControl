@@ -223,11 +223,11 @@ def workerThread():
     w = app.var_rot_value * 2
     if w>100:
       w=100
-    app.joystick_visual.create_arc(39, 39, 160, 160, start=90+w, extent=100-w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual.create_arc(39, 39, 260, 260, start=190-w, extent=100-w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     w = 200 - (app.var_rot_value *2)
     if w>100:
       w=100
-    app.joystick_visual.create_arc(39, 39, 160, 160, start=350, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    app.joystick_visual.create_arc(39, 39, 260, 260, start=350, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
       
     app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
     if app.var_button_value < 50:
