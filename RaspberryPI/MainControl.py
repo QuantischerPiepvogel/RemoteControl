@@ -65,7 +65,7 @@ class App:
     self.home_button = Button(self.taskbar, image=self.home_icon, command=go_home)
     self.home_button.grid(row=0, column=0, sticky=(E, W))
     self.home_button.config(width=34, height=34)
-    self.home_button.config(bg=rgb2hex(104, 104, 104), highlightbackground=rgb2hex(60, 60, 60), relief=FLAT, activebackground=rgb2hex(38, 38, 38), borderwidth = 0)
+    self.home_button.config(bg=rgb2hex(38, 38, 38), highlightbackground=rgb2hex(60, 60, 60), relief=FLAT, activebackground=rgb2hex(38, 38, 38), borderwidth = 0)
 
     self.sensors_button = Button(self.taskbar, image=self.sensors_icon, command=go_sensors)
     self.sensors_button.grid(row=0, column=1, sticky=(W))
