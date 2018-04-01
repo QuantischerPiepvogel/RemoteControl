@@ -209,6 +209,11 @@ def workerThread():
 
       app.joystick_visual_2.grid_forget()
       app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
+      w = app.var_tilt_value
+      if w>50:
+        w=50
+      app.joystick_visual_2.create_rectangle(100, 4, w, 15)
+      
       app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
       if app.var_button_value < 50:
         app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
