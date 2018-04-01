@@ -178,8 +178,7 @@ def software_exit(*args):
   
 def software_update(*args):
   running = False
-  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
-  exit()
+  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))  exit()
 
 def getData(reg):
   value = 0
@@ -212,9 +211,9 @@ def workerThread():
       app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
       app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
       if app.var_button_value < 50:
-        app.joystick_visual_2.create_image(app.var_tilt_value / 2, app.var_pan_value /2, anchor=NW, image=app.joystick_visual_graph_head)
+        app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
       else:
-        app.joystick_visual_2.create_image(app.var_tilt_value / 2, app.var_pan_value / 2, anchor=NW,image=app.joystick_visual_buttondown)
+        app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
       app.joystick_visual_2.grid(row=0, column=0, sticky=(N, W))
       frontbuffer = False
 
@@ -230,7 +229,7 @@ def workerThread():
       app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
       frontbuffer = True
     
-    time.sleep(0.05)
+    time.sleep(0.2)
     
     
 root = Tk()
