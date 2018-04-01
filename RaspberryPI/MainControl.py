@@ -212,7 +212,7 @@ def workerThread():
       w = app.var_tilt_value
       if w>50:
         w=50
-      app.joystick_visual_2.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), color=rgb2hex(60, 60, 60))
+      app.joystick_visual_2.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
       
       app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
       if app.var_button_value < 50:
