@@ -192,8 +192,6 @@ def getData(reg):
 
 def workerThread():
   
-  frontbuffer = True
-  
   while running:
     app.var_tilt_value = getData(0)
     app.var_pan_value = getData(1)
@@ -205,57 +203,41 @@ def workerThread():
     app.button_value_text.set("button: " + str(app.var_button_value))
     app.rot_value_text.set("rot: " + str(app.var_rot_value))
     
-    if frontbuffer:
 
-      app.joystick_visual_2.grid_forget()
-      app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
+    
+    app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
       
+    w = app.var_tilt_value
+    if w>50:
+      w=50
+    app.joystick_visual.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    w = 100-app.var_tilt_value
+    if w>50:
+      w=50
+    app.joystick_visual.create_rectangle(200 - w, 4, 200, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    
+    w = app.var_pan_value
+    if w>50:
+      w=50
+    app.joystick_visual.create_rectangle(279, 99, 296, 100 + w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    w = 100-app.var_pan_value
+    if w>50:
+      w=50
+    app.joystick_visual.create_rectangle(279, 200 - w, 296, 200, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    w = app.var_rot_value * 2
+    if w>100:
+      w=100
+    app.joystick_visual.create_arc(39, 39, 160, 160, start=90+w, extent=100-w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
+    w = 200 - (app.var_rot_value *2)
+    if w>100:
+      w=100
+    app.joystick_visual.create_arc(39, 39, 160, 160, start=350, extent=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
       
-      w = app.var_tilt_value
-      if w>50:
-        w=50
-      app.joystick_visual_2.create_rectangle(99, 4, 100 + w, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      w = 100-app.var_tilt_value
-      if w>50:
-        w=50
-      app.joystick_visual_2.create_rectangle(200 - w, 4, 200, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      
-      w = app.var_pan_value
-      if w>50:
-        w=50
-      app.joystick_visual_2.create_rectangle(279, 99, 296, 100 + w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      w = 100-app.var_pan_value
-      if w>50:
-        w=50
-      app.joystick_visual_2.create_rectangle(279, 200 - w, 296, 200, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      w = app.var_rot_value * 2
-      if w>100:
-        w=100
-      app.joystick_visual_2.create_arc(39, 39, 160, 160, start=90+w, extend=100-w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      w = 200 - (app.var_rot_value *2)
-      if w>100:
-        w=100
-      app.joystick_visual_2.create_arc(39, 39, 160, 160, start=350, extend=w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-      
-      app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
-      if app.var_button_value < 50:
-        app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
-      else:
-        app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
-      app.joystick_visual_2.grid(row=0, column=0, sticky=(N, W))
-      frontbuffer = False
-
+    app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
+    if app.var_button_value < 50:
+      app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW, image=app.joystick_visual_graph_head)
     else:
-
-      app.joystick_visual.grid_forget()
-      app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
-      app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
-      if app.var_button_value < 50:
-        app.joystick_visual.create_image(app.var_tilt_value / 2, app.var_pan_value /2, anchor=NW, image=app.joystick_visual_graph_head)
-      else:
-        app.joystick_visual.create_image(app.var_tilt_value / 2, app.var_pan_value / 2, anchor=NW,image=app.joystick_visual_buttondown)
-      app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
-      frontbuffer = True
+      app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
     
     time.sleep(0.2)
     
