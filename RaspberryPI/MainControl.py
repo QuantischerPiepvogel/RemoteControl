@@ -239,7 +239,7 @@ def workerThread():
     app.joystick_visual = app.joystick_visual_2
     app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
     
-    time.sleep(0.05)
+    time.sleep(0.1)
     
     
 root = Tk()
