@@ -105,10 +105,6 @@ class App:
     self.joystick_visual.grid(row = 0, column = 0, sticky = (N, W))
     self.joystick_visual.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
 
-    self.joystick_visual_2 = Canvas(self.home, width=300, height=300)
-    self.joystick_visual_2.grid(row=0, column=0, sticky=(N, W))
-    self.joystick_visual_2.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
-
     self.joystick_visual_densicolor = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphDensityColor.png")
     self.joystick_visual_background = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphBackground.png")
     self.joystick_visual_graph_head = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphHead.png")
