@@ -212,11 +212,11 @@ def workerThread():
       w=50
     app.joystick_visual.create_rectangle(200 - w, 4, 200, 20, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
     
-    w = app.var_pan_value
+    w = 100-app.var_pan_value
     if w>50:
       w=50
     app.joystick_visual.create_rectangle(279, 99, 296, 100 + w, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
-    w = 100-app.var_pan_value
+    w = app.var_pan_value
     if w>50:
       w=50
     app.joystick_visual.create_rectangle(279, 200 - w, 296, 200, fill=rgb2hex(60, 60, 60), outline=rgb2hex(60, 60, 60))
@@ -235,7 +235,7 @@ def workerThread():
     else:
       app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
     
-    time.sleep(0.2)
+    time.sleep(0.05)
     
     
 root = Tk()
