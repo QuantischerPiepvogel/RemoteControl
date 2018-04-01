@@ -101,6 +101,22 @@ class App:
     self.settings.isgridded = False
     self.settings.config(bg=rgb2hex(60, 60, 60))
 
+    self.joystick_visual = Canvas(self.home, width=300, height=300)
+    self.joystick_visual.grid(row = 0, column = 0, sticky = (N, W))
+    self.joystick_visual.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
+
+    self.joystick_visual_2 = Canvas(self.home, width=300, height=300)
+    self.joystick_visual_2.grid(row=0, column=0, sticky=(N, W))
+    self.joystick_visual_2.config(bg=rgb2hex(60, 60, 60), borderwidth=0, highlightthickness=0, relief=RIDGE)
+
+    self.joystick_visual_densicolor = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphDensityColor.png")
+    self.joystick_visual_background = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphBackground.png")
+    self.joystick_visual_graph_head = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphHead.png")
+    self.joystick_visual_buttondown = PhotoImage(file="RaspberryPI/images/Home/JoystickGraphButtonDown.png")
+
+    self.joystick_visual.create_image(0, 0, anchor=NW, image=self.joystick_visual_densicolor)
+    self.joystick_visual.create_image(0, 0, anchor=NW, image=self.joystick_visual_background)
+    self.joystick_visual.create_image(-50, 0, anchor=NW, image=self.joystick_visual_graph_head)
     
     self.tilt_value = Label(self.sensors, height=1, width=8, textvariable=self.tilt_value_text, anchor=(W))
     self.tilt_value.place(x=10, y=40)
@@ -176,6 +192,9 @@ def getData(reg):
 
 
 def workerThread():
+  
+  frontbuffer = True
+  
   while running:
     app.var_tilt_value = getData(0)
     app.var_pan_value = getData(1)
@@ -187,7 +206,31 @@ def workerThread():
     app.button_value_text.set("button: " + str(app.var_button_value))
     app.rot_value_text.set("rot: " + str(app.var_rot_value))
     
-    time.sleep(0.01)
+    if frontbuffer:
+
+      app.joystick_visual_2.grid_forget()
+      app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
+      app.joystick_visual_2.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
+      if app.var_button_value < 50:
+        app.joystick_visual_2.create_image(app.var_tilt_value / 2, app.var_pan_value /2, anchor=NW, image=app.joystick_visual_graph_head)
+      else:
+        app.joystick_visual_2.create_image(app.var_tilt_value / 2, app.var_pan_value / 2, anchor=NW,image=app.joystick_visual_buttondown)
+      app.joystick_visual_2.grid(row=0, column=0, sticky=(N, W))
+      frontbuffer = False
+
+    else:
+
+      app.joystick_visual.grid_forget()
+      app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
+      app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_background)
+      if app.var_button_value < 50:
+        app.joystick_visual.create_image(app.var_tilt_value / 2, app.var_pan_value /2, anchor=NW, image=app.joystick_visual_graph_head)
+      else:
+        app.joystick_visual.create_image(app.var_tilt_value / 2, app.var_pan_value / 2, anchor=NW,image=app.joystick_visual_buttondown)
+      app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
+      frontbuffer = True
+    
+    time.sleep(0.05)
     
     
 root = Tk()
