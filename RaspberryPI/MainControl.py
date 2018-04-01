@@ -137,7 +137,6 @@ def go_home(*args):
   app.home_button.config(bg=rgb2hex(38, 38, 38))
   app.sensors_button.config(bg=rgb2hex(104, 104, 104))
   app.settings_button.config(bg=rgb2hex(104, 104, 104))
-
   app.home.isgridded = True
   app.home.grid(row=1, column=0, sticky=(N, S, E, W))
   app.sensors.isgridded = False
@@ -178,7 +177,8 @@ def software_exit(*args):
   
 def software_update(*args):
   running = False
-  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))  exit()
+  thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
+  exit()
 
 def getData(reg):
   value = 0
