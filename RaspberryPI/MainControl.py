@@ -200,7 +200,7 @@ def workerThread():
     app.rot_value_text.set("rot: " + str(app.var_rot_value))
     
 
-    
+    app.joystick_visual.delete("all")
     app.joystick_visual.create_image(0, 0, anchor=NW, image=app.joystick_visual_densicolor)
       
     w = app.var_tilt_value
@@ -235,7 +235,7 @@ def workerThread():
     else:
       app.joystick_visual.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
     
-    time.sleep(0.05)
+    time.sleep(0.01)
     
     
 root = Tk()
