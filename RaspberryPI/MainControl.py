@@ -239,14 +239,12 @@ def workerThread():
       w = 100
     app.joystick_visual.itemconfigure(app.a2, start=350, extent=w)
 
-    app.joystick_visual.itemconfigure(app.i1, start=350, extent=w)
     if app.var_button_value < 50:
       app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_graph_head)
     else:
       app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_buttondown)
     
-    
-    time.sleep(0.1)
+    time.sleep(0.01)
     
     
 root = Tk()
