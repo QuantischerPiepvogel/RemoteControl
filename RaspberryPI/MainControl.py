@@ -122,7 +122,7 @@ class App:
     self.a2 = self.joystick_visual.create_arc(36, 36, 263, 263, start=350, extent=100, fill=rgb2hex(60, 60, 60),outline=rgb2hex(60, 60, 60))
     
     self.i1 = self.joystick_visual.create_image(0, 0, anchor=NW, image=self.joystick_visual_background)
-    self.i2 = self.joystick_visual.create_image(self.var_tilt_value - 50, 50 - self.var_pan_value, anchor=NW,image=self.joystick_visual_graph_head)
+    self.i2 = self.joystick_visual.create_image(0, 0, anchor=NW,image=self.joystick_visual_graph_head)
     
     self.tilt_value = Label(self.sensors, height=1, width=8, textvariable=self.tilt_value_text, anchor=(W))
     self.tilt_value.place(x=10, y=40)
@@ -243,8 +243,8 @@ def workerThread():
       app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_graph_head)
     else:
       app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_buttondown)
-    
-    time.sleep(0.01)
+    app.joystick_visual.coords(app.i2, app.var_tilt_value - 50, 50 - app.var_pan_value)
+    time.sleep(0.05)
     
     
 root = Tk()
