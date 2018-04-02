@@ -238,6 +238,8 @@ def workerThread():
       app.joystick_visual_2.create_image(app.var_tilt_value - 50, 50 - app.var_pan_value, anchor=NW,image=app.joystick_visual_buttondown)
     app.joystick_visual = app.joystick_visual_2
     app.joystick_visual.grid(row=0, column=0, sticky=(N, W))
+    app.joystick_visual_2.delete("all")
+    
     
     time.sleep(0.1)
     
