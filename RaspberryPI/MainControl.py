@@ -199,57 +199,61 @@ def getData(reg):
 def workerThread():
   
   while running:
-    app.var_tilt_value = getData(0)
-    app.var_pan_value = getData(1)
-    app.var_button_value = getData(3)
-    app.var_rot_value = getData(2)
+    try:
+      app.var_tilt_value = getData(0)
+      app.var_pan_value = getData(1)
+      app.var_button_value = getData(3)
+      app.var_rot_value = getData(2)
     
-    app.tilt_value_text.set("tilt: " + str(app.var_tilt_value))
-    app.pan_value_text.set("pan: " + str(app.var_pan_value))
-    app.button_value_text.set("button: " + str(app.var_button_value))
-    app.rot_value_text.set("rot: " + str(app.var_rot_value))
+      app.tilt_value_text.set("tilt: " + str(app.var_tilt_value))
+      app.pan_value_text.set("pan: " + str(app.var_pan_value))
+      app.button_value_text.set("button: " + str(app.var_button_value))
+      app.rot_value_text.set("rot: " + str(app.var_rot_value))
     
-    w = app.var_tilt_value
-    if w > 50:
-      w = 50
-    app.joystick_visual.coords(app.r1, 99, 4, 100 + w, 20)
+      w = app.var_tilt_value
+      if w > 50:
+        w = 50
+      app.joystick_visual.coords(app.r1, 99, 4, 100 + w, 20)
 
-    w = 100 - app.var_tilt_value
-    if w > 50:
-      w = 50
-    app.joystick_visual.coords(app.r2, 200 - w, 4, 200, 20)
+      w = 100 - app.var_tilt_value
+      if w > 50:
+        w = 50
+      app.joystick_visual.coords(app.r2, 200 - w, 4, 200, 20)
 
-    w = 100 - app.var_pan_value
-    if w > 50:
-      w = 50
-    app.joystick_visual.coords(app.r3, 279, 99, 296, 100 + w)
+      w = 100 - app.var_pan_value
+      if w > 50:
+        w = 50
+      app.joystick_visual.coords(app.r3, 279, 99, 296, 100 + w)
 
-    w = app.var_pan_value
-    if w > 50:
-      w = 50
-    app.joystick_visual.coords(app.r4, 279, 200 - w, 296, 200)
+      w = app.var_pan_value
+      if w > 50:
+        w = 50
+      app.joystick_visual.coords(app.r4, 279, 200 - w, 296, 200)
 
-    w = app.var_rot_value * 2
-    if w > 100:
-      w = 100
-    app.joystick_visual.itemconfigure(app.a1, start=190 - w, extent=w)
+      w = app.var_rot_value * 2
+      if w > 100:
+        w = 100
+      app.joystick_visual.itemconfigure(app.a1, start=190 - w, extent=w)
 
-    w = 200 - (app.var_rot_value * 2)
-    if w > 100:
-      w = 100
-    app.joystick_visual.itemconfigure(app.a2, start=350, extent=w)
+      w = 200 - (app.var_rot_value * 2)
+      if w > 100:
+        w = 100
+      app.joystick_visual.itemconfigure(app.a2, start=350, extent=w)
 
-    if app.var_button_value < 50:
-      app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_graph_head)
-    else:
-      app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_buttondown)
-    app.joystick_visual.coords(app.i2, app.var_tilt_value - 50, 50 - app.var_pan_value)
-    
-    bus.write_byte(I2C_Arduino_Joystick, 11)
-    bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-    bus.write_byte(I2C_Arduino_Joystick, 12)
-    bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-    
+      if app.var_button_value < 50:
+        app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_graph_head)
+      else:
+        app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_buttondown)
+      app.joystick_visual.coords(app.i2, app.var_tilt_value - 50, 50 - app.var_pan_value)
+    except:
+      print('Unexpected error:', sys.exc_info()[0])
+    try:
+      bus.write_byte(I2C_Arduino_Joystick, 11)
+      bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+      bus.write_byte(I2C_Arduino_Joystick, 12)
+      bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+    except:
+      print('Unexpected error:', sys.exc_info()[0])
     time.sleep(0.05)
     
     
