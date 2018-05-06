@@ -247,6 +247,7 @@ def workerThread():
     
     bus.write_byte(I2C_Arduino_Joystick, 11)
     bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+    bus.write_byte(I2C_Arduino_Joystick, 12)
     bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
     
     time.sleep(0.05)
