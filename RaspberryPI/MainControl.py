@@ -245,9 +245,9 @@ def workerThread():
       app.joystick_visual.itemconfigure(app.i2, image=app.joystick_visual_buttondown)
     app.joystick_visual.coords(app.i2, app.var_tilt_value - 50, 50 - app.var_pan_value)
     
-    bus.write_byte(I2C_Arduino_Joystick, 11)
-    bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-    bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+    #bus.write_byte(I2C_Arduino_Joystick, 11)
+    #bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+    #bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
     
     time.sleep(0.05)
     
