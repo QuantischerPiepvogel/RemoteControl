@@ -228,12 +228,12 @@ def workerThread():
       app.var_pan_value = getData(1, I2C_Arduino_Joystick)
       app.var_button_value = getData(3, I2C_Arduino_Joystick)
       app.var_rot_value = getData(2, I2C_Arduino_Joystick)
-      app.var_directRight_value = getData(2, I2C_Arduino_Joystick)
-      app.var_directLeft_value = getData(2, I2C_Arduino_Non_Joystick)
-      app.var_powerRight_value = getData(2, I2C_Arduino_Joystick)
+      app.var_directRight_value = getData(6, I2C_Arduino_Joystick)
+      app.var_directLeft_value = getData(0, I2C_Arduino_Non_Joystick)
+      app.var_powerRight_value = getData(1, I2C_Arduino_Non_Joystick)
       app.var_powerLeft_value = getData(2, I2C_Arduino_Non_Joystick)
-      app.var_reverseRight_value = getData(2, I2C_Arduino_Joystick)
-      app.var_reverseLeft_value = getData(2, I2C_Arduino_Non_Joystick)
+      app.var_reverseRight_value = getData(3, I2C_Arduino_Non_Joystick)
+      app.var_reverseLeft_value = getData(4, I2C_Arduino_Non_Joystick)
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
