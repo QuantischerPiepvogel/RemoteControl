@@ -54,6 +54,12 @@ class App:
     self.var_pan_value = 0
     self.var_rot_value = 0
     self.var_button_value = 0
+    self.var_directRight_value = 0
+    self.var_directLeft_value = 0
+    self.var_powerRight_value = 0
+    self.var_powerLeft_value = 0
+    self.var_reverseRight_value = 0
+    self.var_reverseLeft_value = 0
     
 
     self.taskbar = Frame(self.frame)
@@ -135,6 +141,24 @@ class App:
 
     self.button_value = Label(self.sensors, height=1, width=8, textvariable=self.button_value_text, anchor=(W))
     self.button_value.place(x=82, y=10)
+    
+    self.directRight_value = Label(self.sensors, height=1, width=8, textvariable=self.directRight_value_text, anchor=(W))
+    self.directRight_value.place(x=82, y=70)
+    
+    self.directLeft_value = Label(self.sensors, height=1, width=8, textvariable=self.directLeft_value_text, anchor=(W))
+    self.directLeft_value.place(x=10, y=70)
+    
+    self.powerRight_value = Label(self.sensors, height=1, width=8, textvariable=self.powerRight_value_text, anchor=(W))
+    self.powerRight_value.place(x=82, y=100)
+    
+    self.powerLeft_value = Label(self.sensors, height=1, width=8, textvariable=self.powerLeft_value_text, anchor=(W))
+    self.powerLeft_value.place(x=10, y=100)
+    
+    self.reverseRight_value = Label(self.sensors, height=1, width=8, textvariable=self.reverseRight_value_text, anchor=(W))
+    self.reverseRight_value.place(x=82, y=130)
+    
+    self.reverseLeft_value = Label(self.sensors, height=1, width=8, textvariable=self.reverseLeft_value_text, anchor=(W))
+    self.reverseLeft_value.place(x=10, y=130)
 
 print("RemoteControl.py was sucessfully started")
 
@@ -186,11 +210,11 @@ def software_update(*args):
   thread.start_new_thread(os.system, ("sudo python RaspberryPI/Updater.py",))
   exit()
 
-def getData(reg):
+def getData(reg, addr):
   value = 0
   try:
-    bus.write_byte(I2C_Arduino_Joystick, reg)
-    value = bus.read_byte(I2C_Arduino_Joystick)
+    bus.write_byte(addr, reg)
+    value = bus.read_byte(addr)
   except BaseException as e:
     value = "ERR"
   return value
@@ -200,10 +224,16 @@ def workerThread():
   
   while running:
     try:
-      app.var_tilt_value = getData(0)
-      app.var_pan_value = getData(1)
-      app.var_button_value = getData(3)
-      app.var_rot_value = getData(2)
+      app.var_tilt_value = getData(0, I2C_Arduino_Joystick)
+      app.var_pan_value = getData(1, I2C_Arduino_Joystick)
+      app.var_button_value = getData(3, I2C_Arduino_Joystick)
+      app.var_rot_value = getData(2, I2C_Arduino_Joystick)
+      app.var_directRight_value = getData(2, I2C_Arduino_Joystick)
+      app.var_directLeft_value = getData(2, I2C_Arduino_Non_Joystick)
+      app.var_powerRight_value = getData(2, I2C_Arduino_Joystick)
+      app.var_powerLeft_value = getData(2, I2C_Arduino_Non_Joystick)
+      app.var_reverseRight_value = getData(2, I2C_Arduino_Joystick)
+      app.var_reverseLeft_value = getData(2, I2C_Arduino_Non_Joystick)
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
@@ -212,6 +242,12 @@ def workerThread():
       app.pan_value_text.set("pan: " + str(app.var_pan_value))
       app.button_value_text.set("button: " + str(app.var_button_value))
       app.rot_value_text.set("rot: " + str(app.var_rot_value))
+      app.directRight_value_text.set("dr: " + str(app.var_directRight_value))
+      app.directLeft_value_text.set("dl: " + str(app.var_directLeft_value))
+      app.powerRight_value_text.set("pr: " + str(app.var_powerRight_value))
+      app.powerLeft_value_text.set("pl: " + str(app.var_powerLeft_value))
+      app.reverseRight_value_text.set("rr: " + str(app.var_reverseRight_value))
+      app.reverseLeft_value_text.set("rl: " + str(app.var_reverseLeft_value))
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
