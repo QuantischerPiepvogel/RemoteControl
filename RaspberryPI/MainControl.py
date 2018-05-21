@@ -240,7 +240,7 @@ def workerThread():
     try:
       app.tilt_value_text.set("tilt: " + str(app.var_tilt_value))
       app.pan_value_text.set("pan: " + str(app.var_pan_value))
-      app.button_value_text.set("button: " + str(app.var_button_value))
+      app.button_value_text.set("buttonl: " + str(app.var_button_value))
       app.rot_value_text.set("rot: " + str(app.var_rot_value))
       app.directRight_value_text.set("dr: " + str(app.var_directRight_value))
       app.directLeft_value_text.set("dl: " + str(app.var_directLeft_value))
