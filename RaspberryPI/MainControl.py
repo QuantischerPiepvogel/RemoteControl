@@ -308,7 +308,7 @@ def workerThread():
     except:
       print('Unexpected error:', sys.exc_info()[0])
     
-    if counter % 2 == 0:
+    if counter % 1 == 0:
       try:
         bus.write_byte(I2C_Arduino_Joystick, 11)
         bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
@@ -317,7 +317,7 @@ def workerThread():
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
-    time.sleep(0.1)
+    time.sleep(0.2)
     
     
 root = Tk()
