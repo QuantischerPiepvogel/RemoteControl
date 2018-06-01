@@ -221,7 +221,7 @@ def getData(reg, addr):
 
 
 def workerThread():
-  
+  counter = 0
   while running:
     try:
       app.var_tilt_value = getData(0, I2C_Arduino_Joystick)
@@ -307,14 +307,16 @@ def workerThread():
       app.joystick_visual.coords(app.i2, app.var_tilt_value - 50, 50 - app.var_pan_value)
     except:
       print('Unexpected error:', sys.exc_info()[0])
-      
-    try:
-      bus.write_byte(I2C_Arduino_Joystick, 11)
-      bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-      bus.write_byte(I2C_Arduino_Joystick, 12)
-      bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-    except:
-      print('Unexpected error:', sys.exc_info()[0])
+    
+    if counter % 2 == 0:
+      try:
+        bus.write_byte(I2C_Arduino_Joystick, 11)
+        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+        bus.write_byte(I2C_Arduino_Joystick, 12)
+        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+      except:
+        print('Unexpected error:', sys.exc_info()[0])
+    counter += 1
     time.sleep(0.1)
     
     
