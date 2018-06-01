@@ -315,7 +315,7 @@ def workerThread():
       bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
     except:
       print('Unexpected error:', sys.exc_info()[0])
-    time.sleep(0.2)
+    time.sleep(0.1)
     
     
 root = Tk()
