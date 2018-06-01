@@ -308,14 +308,12 @@ def workerThread():
     except:
       print('Unexpected error:', sys.exc_info()[0])
     
-    if counter % 2 == 0:
+    if counter % 4 == 0:
       try:
         bus.write_byte(I2C_Arduino_Joystick, 11)
-        #bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-        bus.write_byte(I2C_Arduino_Joystick, 10)
+        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
         bus.write_byte(I2C_Arduino_Joystick, 12)
-        #bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-        bus.write_byte(I2C_Arduino_Joystick, 11)
+        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
