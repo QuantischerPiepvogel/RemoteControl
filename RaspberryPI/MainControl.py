@@ -10,6 +10,7 @@ running = True
 bus = smbus.SMBus(1)
 I2C_Arduino_Joystick = 0x08
 I2C_Arduino_Non_Joystick = 0x09
+I2C_Arduino_WLAN = 0x07
 try:
   bus.write_byte(I2C_Arduino_Joystick, 0xFF)
 except BaseException as e:
@@ -310,10 +311,10 @@ def workerThread():
     
     if counter % 4 == 0:
       try:
-        bus.write_byte(I2C_Arduino_Joystick, 11)
-        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
-        bus.write_byte(I2C_Arduino_Joystick, 12)
-        bus.write_byte(I2C_Arduino_Joystick, app.var_pan_value)
+        bus.write_byte(I2C_Arduino_WLAN, 11)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_pan_value)
+        bus.write_byte(I2C_Arduino_WLAN, 12)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_pan_value)
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
