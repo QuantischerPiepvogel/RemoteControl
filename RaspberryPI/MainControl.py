@@ -318,7 +318,7 @@ def workerThread():
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
-    time.sleep(0.1)
+    time.sleep(0.05)
     
     
 root = Tk()
