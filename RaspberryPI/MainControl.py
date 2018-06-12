@@ -312,9 +312,9 @@ def workerThread():
     if counter % 4 == 0:
       try:
         bus.write_byte(I2C_Arduino_WLAN, 11)
-        bus.write_byte(I2C_Arduino_WLAN, app.var_pan_value)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_powerRight_value)
         bus.write_byte(I2C_Arduino_WLAN, 12)
-        bus.write_byte(I2C_Arduino_WLAN, app.var_pan_value)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_powerLeft_value)
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
