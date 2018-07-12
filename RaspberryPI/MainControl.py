@@ -49,6 +49,7 @@ class App:
     self.powerLeft_value_text = StringVar()
     self.reverseRight_value_text = StringVar()
     self.reverseLeft_value_text = StringVar()
+    self.var_counterWLAN_value_text = StringVar()
 
     
     self.var_tilt_value = 0
@@ -61,6 +62,7 @@ class App:
     self.var_powerLeft_value = 0
     self.var_reverseRight_value = 0
     self.var_reverseLeft_value = 0
+    self.var_counterWLAN_value = 0
     
 
     self.taskbar = Frame(self.frame)
@@ -160,6 +162,9 @@ class App:
     
     self.reverseLeft_value = Label(self.sensors, height=1, width=8, textvariable=self.reverseLeft_value_text, anchor=(W))
     self.reverseLeft_value.place(x=10, y=130)
+    
+    self.counterWLAN_value = Label(self.sensors, height=1, width=8, textvariable=self.var_counterWLAN_value_text, anchor=(W))
+    self.counterWLAN_value.place(x=200, y=130)
 
 print("RemoteControl.py was sucessfully started")
 
@@ -235,6 +240,7 @@ def workerThread():
       app.var_powerLeft_value = getData(1, I2C_Arduino_Non_Joystick)
       app.var_reverseRight_value = getData(3, I2C_Arduino_Non_Joystick)
       app.var_reverseLeft_value = getData(2, I2C_Arduino_Non_Joystick)
+      app.var_counterWLAN_value = getData(15, I2C_Arduino_WLAN)
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
@@ -249,6 +255,7 @@ def workerThread():
       app.powerLeft_value_text.set("pl: " + str(app.var_powerLeft_value))
       app.reverseRight_value_text.set("rr: " + str(app.var_reverseRight_value))
       app.reverseLeft_value_text.set("rl: " + str(app.var_reverseLeft_value))
+      app.var_counterWLAN_value_text.set("cW: " + str(app.var_counterWLAN_value))
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
