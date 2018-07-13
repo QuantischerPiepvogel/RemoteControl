@@ -225,6 +225,14 @@ def getData(reg, addr):
     value = "ERR"
   return value
 
+def getDataEasy(addr):
+  value = 0
+  try:
+    value = bus.read_byte(addr)
+  except BaseException as e:
+    value = "ERR"
+  return value
+
 
 def workerThread():
   counter = 0
@@ -240,7 +248,7 @@ def workerThread():
       app.var_powerLeft_value = getData(1, I2C_Arduino_Non_Joystick)
       app.var_reverseRight_value = getData(3, I2C_Arduino_Non_Joystick)
       app.var_reverseLeft_value = getData(2, I2C_Arduino_Non_Joystick)
-      app.var_counterWLAN_value = getData(15, I2C_Arduino_WLAN)
+      app.var_counterWLAN_value = getDataEasy(I2C_Arduino_WLAN)
     except:
       print('Unexpected error:', sys.exc_info()[0])
       
@@ -322,6 +330,10 @@ def workerThread():
         bus.write_byte(I2C_Arduino_WLAN, app.var_powerRight_value)
         bus.write_byte(I2C_Arduino_WLAN, 12)
         bus.write_byte(I2C_Arduino_WLAN, app.var_powerLeft_value)
+        bus.write_byte(I2C_Arduino_WLAN, 13)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_directRight_value)
+        bus.write_byte(I2C_Arduino_WLAN, 14)
+        bus.write_byte(I2C_Arduino_WLAN, app.var_directLeft_value)
       except:
         print('Unexpected error:', sys.exc_info()[0])
     counter += 1
